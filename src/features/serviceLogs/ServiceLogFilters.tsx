@@ -29,13 +29,13 @@ export function ServiceLogFilters() {
 
   return (
     <Box sx={{ mb: 2 }}>
-      <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.5, alignItems: 'flex-start' }}>
+      <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, alignItems: 'flex-start' }}>
         <TextField
           value={searchQuery}
           onChange={(e) => dispatch(setSearchQuery(e.target.value))}
-          placeholder="Search logs..."
+          placeholder="Search..."
           size="small"
-          sx={{ width: 200 }}
+          sx={{ flex: '1 1 140px', minWidth: 140, maxWidth: 200 }}
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
@@ -59,7 +59,7 @@ export function ServiceLogFilters() {
           }
           size="small"
           InputLabelProps={{ shrink: true }}
-          sx={{ width: 150 }}
+          sx={{ flex: '0 1 145px', minWidth: 130 }}
         />
 
         <TextField
@@ -76,7 +76,7 @@ export function ServiceLogFilters() {
           }
           size="small"
           InputLabelProps={{ shrink: true }}
-          sx={{ width: 150 }}
+          sx={{ flex: '0 1 145px', minWidth: 130 }}
         />
 
         <TextField
@@ -88,7 +88,7 @@ export function ServiceLogFilters() {
             dispatch(setTypeFilter(isServiceType(val) ? val : null));
           }}
           size="small"
-          sx={{ width: 140 }}
+          sx={{ flex: '0 0 120px' }}
         >
           <MenuItem value="">All Types</MenuItem>
           <MenuItem value={ServiceType.Planned}>Planned</MenuItem>
