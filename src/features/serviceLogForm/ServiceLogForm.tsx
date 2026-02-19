@@ -53,6 +53,9 @@ export function ServiceLogForm({ mode, initialValues, onSubmit, onCancel }: Serv
   const activeDraftId = useAppSelector(selectActiveDraftId);
   const activeDraft = useAppSelector(selectActiveDraft);
 
+  // Known type mismatch: our form uses `number | ''` for empty numeric inputs,
+  // but Yup infers strict `number`. The cast is safe — Yup validates before submit.
+  // See: https://github.com/react-hook-form/resolvers/issues/440
   const form = useForm<ServiceLogFormValues>({
     resolver: yupResolver(serviceLogSchema) as never,
     defaultValues: initialValues ?? defaultFormValues(),

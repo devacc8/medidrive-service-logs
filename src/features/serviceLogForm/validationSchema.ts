@@ -35,5 +35,3 @@ export const serviceLogSchema = yup.object({
     .trim()
     .min(10, 'Description must be at least 10 characters'),
 });
-
-export type ServiceLogSchemaType = yup.InferType<typeof serviceLogSchema>;

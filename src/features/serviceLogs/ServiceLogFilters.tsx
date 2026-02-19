@@ -11,6 +11,12 @@ import { selectSearchQuery, selectFilters } from './serviceLogsSelectors';
 import { setSearchQuery, setDateRangeFilter, setTypeFilter, clearFilters } from './serviceLogsSlice';
 import { ServiceType } from '@/common/types';
 
+const SERVICE_TYPE_VALUES = new Set<string>(Object.values(ServiceType));
+
+function isServiceType(value: string): value is ServiceType {
+  return SERVICE_TYPE_VALUES.has(value);
+}
+
 export function ServiceLogFilters() {
   const dispatch = useAppDispatch();
   const searchQuery = useAppSelector(selectSearchQuery);
@@ -78,9 +84,10 @@ export function ServiceLogFilters() {
           select
           label="Type"
           value={filters.type ?? ''}
-          onChange={(e) =>
-            dispatch(setTypeFilter((e.target.value as ServiceType) || null))
-          }
+          onChange={(e) => {
+            const val = e.target.value;
+            dispatch(setTypeFilter(isServiceType(val) ? val : null));
+          }}
           size="small"
           sx={{ minWidth: 140 }}
         >

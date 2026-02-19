@@ -1,3 +1,4 @@
+import { useCallback } from 'react';
 import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
@@ -29,12 +30,16 @@ function logToFormValues(log: ServiceLog): ServiceLogFormValues {
 export function ServiceLogEditDialog({ open, log, onClose }: ServiceLogEditDialogProps) {
   const dispatch = useAppDispatch();
 
-  if (!log) return null;
+  const handleSave = useCallback(
+    (values: ServiceLogFormValues) => {
+      if (!log) return;
+      dispatch(updateServiceLog({ id: log.id, values }));
+      onClose();
+    },
+    [log, dispatch, onClose],
+  );
 
-  const handleSave = (values: ServiceLogFormValues) => {
-    dispatch(updateServiceLog({ id: log.id, values }));
-    onClose();
-  };
+  if (!log) return null;
 
   return (
     <Dialog open={open} onClose={onClose} maxWidth="sm" fullWidth>
