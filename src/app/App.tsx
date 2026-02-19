@@ -19,16 +19,16 @@ export default function App() {
         </Toolbar>
       </AppBar>
 
-      <Container maxWidth="xl" sx={{ flexGrow: 1, py: 3 }}>
+      <Container maxWidth="lg" sx={{ flexGrow: 1, py: 3 }}>
         <Grid container spacing={3}>
           {/* Left panel: drafts + form */}
-          <Grid size={{ xs: 12, md: 5, lg: 4 }}>
+          <Grid size={{ xs: 12, md: 5 }}>
             <DraftManager />
             <ServiceLogForm mode="draft" />
           </Grid>
 
           {/* Right panel: table */}
-          <Grid size={{ xs: 12, md: 7, lg: 8 }}>
+          <Grid size={{ xs: 12, md: 7 }}>
             <ServiceLogsTable />
           </Grid>
         </Grid>

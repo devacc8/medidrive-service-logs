@@ -76,18 +76,18 @@ export function ServiceLogsTable() {
             : 'No logs match your search or filters.'}
         </Typography>
       ) : (
-        <TableContainer>
-          <Table size="small">
+        <TableContainer sx={{ overflowX: 'auto' }}>
+          <Table size="small" sx={{ minWidth: 700 }}>
             <TableHead>
               <TableRow>
-                <TableCell>Service Order</TableCell>
-                <TableCell>Provider</TableCell>
-                <TableCell>Car ID</TableCell>
-                <TableCell align="right">Odometer (mi)</TableCell>
-                <TableCell>Start Date</TableCell>
-                <TableCell>End Date</TableCell>
-                <TableCell>Type</TableCell>
-                <TableCell align="right">Actions</TableCell>
+                <TableCell sx={{ whiteSpace: 'nowrap' }}>Service Order</TableCell>
+                <TableCell sx={{ whiteSpace: 'nowrap' }}>Provider</TableCell>
+                <TableCell sx={{ whiteSpace: 'nowrap' }}>Car ID</TableCell>
+                <TableCell sx={{ whiteSpace: 'nowrap' }} align="right">Odometer (mi)</TableCell>
+                <TableCell sx={{ whiteSpace: 'nowrap' }}>Start Date</TableCell>
+                <TableCell sx={{ whiteSpace: 'nowrap' }}>End Date</TableCell>
+                <TableCell sx={{ whiteSpace: 'nowrap' }}>Type</TableCell>
+                <TableCell sx={{ whiteSpace: 'nowrap' }} align="right">Actions</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>

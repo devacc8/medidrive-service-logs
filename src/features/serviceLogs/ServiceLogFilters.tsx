@@ -2,7 +2,6 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 import Button from '@mui/material/Button';
-import Stack from '@mui/material/Stack';
 import InputAdornment from '@mui/material/InputAdornment';
 import SearchIcon from '@mui/icons-material/Search';
 import FilterListOffIcon from '@mui/icons-material/FilterListOff';
@@ -30,13 +29,13 @@ export function ServiceLogFilters() {
 
   return (
     <Box sx={{ mb: 2 }}>
-      <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1.5} alignItems="flex-start">
+      <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.5, alignItems: 'flex-start' }}>
         <TextField
           value={searchQuery}
           onChange={(e) => dispatch(setSearchQuery(e.target.value))}
           placeholder="Search logs..."
           size="small"
-          sx={{ minWidth: 220 }}
+          sx={{ width: 200 }}
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
@@ -60,7 +59,7 @@ export function ServiceLogFilters() {
           }
           size="small"
           InputLabelProps={{ shrink: true }}
-          sx={{ minWidth: 150 }}
+          sx={{ width: 150 }}
         />
 
         <TextField
@@ -77,7 +76,7 @@ export function ServiceLogFilters() {
           }
           size="small"
           InputLabelProps={{ shrink: true }}
-          sx={{ minWidth: 150 }}
+          sx={{ width: 150 }}
         />
 
         <TextField
@@ -89,7 +88,7 @@ export function ServiceLogFilters() {
             dispatch(setTypeFilter(isServiceType(val) ? val : null));
           }}
           size="small"
-          sx={{ minWidth: 140 }}
+          sx={{ width: 140 }}
         >
           <MenuItem value="">All Types</MenuItem>
           <MenuItem value={ServiceType.Planned}>Planned</MenuItem>
@@ -106,7 +105,7 @@ export function ServiceLogFilters() {
             Clear
           </Button>
         )}
-      </Stack>
+      </Box>
     </Box>
   );
 }
