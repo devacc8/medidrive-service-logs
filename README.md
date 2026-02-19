@@ -1,5 +1,7 @@
 # MediDrive — Service Log Manager
 
+**Live demo:** https://medidrive-service-logs.vercel.app/
+
 Service log management application built with React, Redux Toolkit, and MUI.
 
 ## Tech Stack
